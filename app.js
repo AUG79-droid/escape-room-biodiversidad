@@ -1,7 +1,7 @@
 const roomMeta = [
   { id: 'room1', phase: 'Fase 1', title: 'Sala 1 · Pérdida de hábitats', short: 'Sala 1', key: '23' },
   { id: 'room2', phase: 'Fase 2', title: 'Sala 2 · Contaminación invisible', short: 'Sala 2', key: 'AZUL' },
-  { id: 'room3', phase: 'Fase 3', title: 'Sala 3 · Detectives de la biodiversidad', short: 'Sala 3', key: 'FLOR' },
+  { id: 'room3', phase: 'Fase 3', title: 'Sala 3 · Detectives de la naturaleza', short: 'Sala 3', key: 'FLOR' },
   { id: 'room4', phase: 'Fase 4', title: 'Sala 4 · Ecosistema en equilibrio', short: 'Sala 4', key: 'VERDE' },
   { id: 'room5', phase: 'Fase 5', title: 'Sala 5 · La solución está en nuestras manos', short: 'Sala 5', key: 'NIDOS' },
 ];
@@ -198,7 +198,7 @@ function renderRoom2(){
 }
 
 function renderRoom3(){
-  return `<div class="page">${pageHead('Módulo 03 / Detectives de la biodiversidad','Identificación de especies','Clasifica cada especie según su origen e impacto en el ecosistema local.', '<button class="primary-btn" onclick="validateRoom3()">Validar clasificación</button>')}
+  return `<div class="page">${pageHead('Módulo 03 / Detectives de la naturaleza','Identificación de especies','Clasifica cada especie según su origen e impacto en el ecosistema local.', '<button class="primary-btn" onclick="validateRoom3()">Validar clasificación</button>')}
     <div class="room3-wrap">
       <div>
         <div class="bank-title">Especies a clasificar</div>
