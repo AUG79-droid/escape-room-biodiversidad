@@ -125,7 +125,7 @@ function renderWelcome(){
     <section class="hero">
       <div>
         <div class="page-kicker headline">Iniciativa de sostenibilidad</div>
-        <h1 class="page-title headline">Misión <span style="color:var(--cyan)">Biodiversidad</span></h1>
+        <h1 class="page-title headline">Misión de Aviación <span style="color:var(--cyan)">Sostenible</span></h1>
         <div class="page-desc">Explora los ecosistemas, identifica amenazas y asegura el futuro ambiental de nuestras instalaciones. Una experiencia interactiva de Airbus inspirada en la estética final conseguida en Stitch.</div>
         <div class="welcome-actions">
           <button class="primary-btn" onclick="go('hub')">Iniciar misión</button>
@@ -278,13 +278,13 @@ function render(){
   app.innerHTML = `
     <div class="app-shell">
       <aside class="sidebar">
-        <div class="brand"><div class="brand-badge">A</div><div><div class="brand-title headline">AIRBUS</div><div class="brand-sub">Misión biodiversidad</div></div></div>
+        <div class="brand"><div class="brand-badge">A</div><div><div class="brand-title headline">AIRBUS</div><div class="brand-sub">Misión de aviación sostenible</div></div></div>
         <div class="progress-block"><h4>Estado de misión</h4><div class="progress-meta"><span>${progress}%</span><span>${Object.keys(state.solvedKeys).length}/5</span></div><div class="progress-track"><div class="progress-fill" style="width:${progress}%"></div></div></div>
         <div class="keys-block"><h4>Claves de acceso</h4><div class="keys-list">${roomMeta.map((r,i)=>`<div class="key-card"><div class="key-left"><div class="key-num">${i+1}</div><div><div class="key-title">${r.short}</div><div class="key-value">${state.solvedKeys[r.id] || 'bloqueada'}</div></div></div><div>${state.solvedKeys[r.id] ? '<span class="key-check">✓</span>' : '🔒'}</div></div>`).join('')}</div></div>
         <div class="nav-actions"><button class="nav-link" onclick="go('hub')">⌂ Volver al hub</button><button class="nav-link danger" onclick="resetAll()">↺ Reiniciar</button>${Object.keys(state.solvedKeys).length===5 ? '<button class="primary-btn" onclick="go(\'final\')">Abrir misión cumplida</button>':''}</div>
       </aside>
       <div class="main">
-        <header class="topbar"><div><div class="top-title headline">Misión Biodiversidad</div><div class="top-sub">Escape room digital sobre biodiversidad · Airbus Getafe</div></div><nav class="phase-nav">${roomMeta.map(r=>`<button class="phase-btn ${state.current===r.id?'active':''}" onclick="go('${r.id}')">${r.phase}</button>`).join('')}</nav></header>
+        <header class="topbar"><div><div class="top-title headline">Misión de Aviación Sostenible</div><div class="top-sub">Escape room digital sobre sostenibilidad aplicada · Airbus Getafe</div></div><nav class="phase-nav">${roomMeta.map(r=>`<button class="phase-btn ${state.current===r.id?'active':''}" onclick="go('${r.id}')">${r.phase}</button>`).join('')}</nav></header>
         <main class="content">${renderMainContent()}</main>
       </div>
     </div>`;
