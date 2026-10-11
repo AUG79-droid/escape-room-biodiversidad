@@ -1,0 +1,232 @@
+/* Escape Room — full-app readability and space-usage overhaul.
+   Shared identically by Spanish and English editions.
+   Applies to home, mission briefing, all ten dynamically rendered rooms,
+   their puzzle/debrief views, final-code panel and results. */
+
+:root {--muted:#d3e2e5; --line:rgba(223,245,250,.24);}
+html {font-size:18px;scroll-padding-top:104px;-webkit-text-size-adjust:100%;}
+body {font-size:18px;line-height:1.57;}
+.app {width:100%;max-width:1940px;padding:clamp(14px,1.65vw,30px);padding-bottom:85px;}
+.screen,.card,.mission-grid,.workspace,.sidebar,.brief-panel,.pollution-card,
+.puzzle,.puzzle-row,.learning-box,.route-row {min-width:0;}
+.topbar {padding:16px clamp(17px,1.5vw,29px);min-height:80px;gap:20px;}
+.brand strong {font-size:clamp(19px,1.25vw,25px);line-height:1.23;}
+.brand small {font-size:15px;line-height:1.45;white-space:normal;overflow:visible;}
+.mark {width:48px;height:48px;flex:none;font-size:20px;}
+.nav {gap:11px;align-items:center;}
+.chip {font-size:15px;line-height:1.3;padding:10px 15px;color:#e5f2f4;}
+.btn {font-size:17px;line-height:1.35;min-height:47px;padding:12px 19px;}
+.btn-primary,.btn-secondary {font-weight:850;}
+.eyebrow {font-size:15px;line-height:1.45;letter-spacing:.09em;}
+.card {border-color:var(--line);}
+p,li {line-height:1.68;}
+button,select,input {max-width:100%;}
+input,select {font-size:17px;min-height:48px;}
+button:focus-visible,select:focus-visible,input:focus-visible {outline:3px solid #ffe2a2;outline-offset:3px;}
+
+/* Homepage: reduce empty-height constraints; let text and actions use width */
+.hero {margin-top:22px;min-height:min(810px,calc(100svh - 155px));background-position:center 43%;}
+.hero-copy {width:min(100%,1240px);max-width:1240px;padding:clamp(38px,3.7vw,77px);}
+.hero h1,.brief h1,.results h1 {font-size:clamp(49px,5.4vw,100px);line-height:1.02;letter-spacing:-.045em;}
+.hero p {max-width:1000px;font-size:clamp(20px,1.28vw,25px);line-height:1.62;}
+.facts {gap:12px;margin:25px 0 30px;}
+.fact {font-size:16px;line-height:1.45;padding:10px 14px;}
+.actions {display:flex;align-items:center;flex-wrap:wrap;gap:13px;}
+.actions .btn {font-size:18px;min-height:52px;padding:13px 22px;}
+.resume-card {padding:22px;}
+.resume-card strong {font-size:21px;}
+.resume-card p {font-size:17px;line-height:1.62;}
+
+/* Mandatory briefing and ten-room itinerary */
+.brief {margin-top:22px;padding:clamp(28px,2.9vw,58px);min-height:calc(100svh - 155px);}
+.brief h1 {font-size:clamp(42px,4.1vw,77px);max-width:1300px;}
+.brief-lead {max-width:1200px;font-size:21px;line-height:1.7;}
+.brief-grid {grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);gap:clamp(18px,1.8vw,34px);margin-top:30px;}
+.brief-panel {padding:clamp(23px,2vw,36px);}
+.brief-panel h2 {font-size:29px;line-height:1.3;margin-bottom:17px;}
+.brief-panel p,.brief-panel li {font-size:19px;line-height:1.7;color:#e4eff0;}
+.brief-panel li {padding-bottom:8px;}
+.route-preview {grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;}
+.route-row {grid-template-columns:47px minmax(0,1fr);gap:15px;padding:16px;}
+.route-row b {width:45px;height:45px;font-size:19px;}
+.route-row strong {font-size:19px;line-height:1.35;}
+.route-row span {font-size:16px;line-height:1.55;margin-top:5px;color:#d9e9eb;}
+.notice {font-size:17px;line-height:1.63;padding:20px 23px;margin:24px 0;}
+
+/* Main mission: more space for the activity, compact scrollable route */
+.mission {margin-top:21px;}
+.mission-grid {grid-template-columns:minmax(280px,330px) minmax(0,1fr);gap:clamp(16px,1.5vw,30px);align-items:start;}
+.sidebar {padding:clamp(18px,1.5vw,28px);position:sticky;top:103px;max-height:calc(100dvh - 117px);overflow-y:auto;overscroll-behavior:contain;scrollbar-color:#527e88 transparent;}
+.sidebar h2 {font-size:26px;line-height:1.3;}
+.sidebar>p {font-size:16px;line-height:1.55;color:#e0edee;}
+.route {gap:9px;margin:20px 0;}
+.room-link {grid-template-columns:40px minmax(0,1fr) 22px;gap:12px;min-height:60px;padding:11px 13px;}
+.room-link .num {width:40px;height:40px;font-size:17px;}
+.room-link strong {font-size:16px;line-height:1.4;}
+.room-link small {font-size:14px;line-height:1.4;color:#c9dadf;}
+.lock {font-size:15px;}
+.mission-stat {padding:14px;}
+.mission-stat strong {font-size:23px;}
+.mission-stat span {font-size:14px;line-height:1.4;}
+.side-actions {gap:10px;}
+.side-actions .btn {font-size:15px;line-height:1.5;min-height:45px;padding:10px 12px;}
+.workspace {width:100%;padding:clamp(24px,2.45vw,48px);min-height:calc(100svh - 165px);}
+.room-head {gap:26px;}
+.room-head > div:first-child {min-width:0;flex:1;}
+.room-head h1 {font-size:clamp(35px,3.4vw,65px);letter-spacing:-.04em;line-height:1.1;margin:15px 0;}
+.room-head p {font-size:clamp(18px,1.1vw,22px);line-height:1.65;max-width:1050px;color:#e5f0f1;}
+.tags {gap:11px;margin:20px 0;}
+.tag {font-size:15px;line-height:1.45;padding:8px 12px;color:#e1f0f0;}
+.clue-orb {flex-shrink:0;}
+
+/* All puzzle forms including dynamically rendered rooms 1 through 10 */
+.puzzle {margin-top:24px;padding:clamp(22px,2vw,40px);}
+.puzzle h2 {font-size:clamp(25px,1.85vw,35px);line-height:1.3;margin-bottom:11px;}
+.puzzle>p {font-size:20px;line-height:1.65;color:#e6f1f1;}
+.rows {gap:15px;margin:24px 0;}
+.puzzle-row {grid-template-columns:minmax(0,1.45fr) minmax(280px,.8fr);gap:24px;padding:clamp(18px,1.35vw,27px);}
+.puzzle-row strong {font-size:20px;line-height:1.5;}
+.puzzle-row span {font-size:17px;line-height:1.62;margin-top:7px;color:#d6e8e9;}
+.puzzle-row select {font-size:17px;min-height:50px;padding:13px 15px;white-space:normal;}
+.puzzle-actions {gap:13px;margin-top:24px;}
+.puzzle-actions .btn {font-size:18px;min-height:52px;padding:13px 20px;}
+.attempt-line {font-size:16px;line-height:1.45;padding:12px 15px;}
+.status,.hint {font-size:18px;line-height:1.65;padding:21px 23px;margin-top:18px;}
+.solution-note {font-size:17px;line-height:1.62;padding:16px 19px;}
+.assisted-label {font-size:13px;line-height:1.4;padding:7px 11px;}
+
+/* Room debrief, evidence and theory after EVERY room */
+.debrief {margin-top:22px;padding:clamp(23px,2vw,38px);}
+.debrief-head {gap:19px;}
+.debrief h2 {font-size:clamp(25px,1.9vw,36px);line-height:1.25;}
+.debrief p {font-size:19px;line-height:1.68;}
+.learning-grid {grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:22px 0;}
+.learning-box {padding:clamp(20px,1.55vw,30px);}
+.learning-box strong {font-size:16px;line-height:1.45;letter-spacing:.035em;margin-bottom:12px;}
+.learning-box span,.learning-box li {font-size:19px;line-height:1.7;}
+.learning-box ul {padding-left:24px;}
+.source {font-size:16px;line-height:1.55;overflow-wrap:anywhere;}
+.source a {text-underline-offset:3px;}
+
+/* Room 2 photographic pollution cards and three classification categories */
+.pollution-layout {gap:24px;}
+.pollution-categories {grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;}
+.pollution-photo {height:clamp(165px,12vw,255px);}
+.pollution-category h3 {font-size:24px;line-height:1.32;padding:18px 20px 7px;}
+.pollution-category p {font-size:17px;line-height:1.62;padding:0 20px 22px;color:#e0eeef;}
+.pollution-effects {grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;}
+.pollution-card {grid-template-columns:minmax(120px,.42fr) minmax(0,1fr);min-height:205px;}
+.pollution-thumb {min-height:205px;}
+.pollution-copy {padding:20px;}
+.pollution-copy strong {font-size:20px;line-height:1.45;}
+.pollution-copy span {font-size:17px;line-height:1.56;margin:9px 0 14px;color:#daebec;}
+.pollution-copy select {font-size:17px;min-height:50px;padding:12px;}
+
+/* Final unlock and results: generous content, smaller number of crowded columns */
+.code-panel {margin-top:24px;padding:clamp(24px,2.1vw,38px);}
+.code-panel h2 {font-size:clamp(25px,2vw,37px);line-height:1.3;}
+.code-panel p {font-size:19px;line-height:1.62;}
+.code-entry {gap:14px;}
+.code-entry input {font-size:20px;min-height:54px;min-width:240px;}
+.results {margin-top:22px;min-height:calc(100svh - 155px);padding:clamp(28px,3vw,62px);}
+.results h1 {font-size:clamp(42px,4.6vw,82px);line-height:1.1;max-width:1200px;}
+.results-lead {font-size:21px;line-height:1.65;max-width:1050px;}
+.result-grid {grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin:30px 0;}
+.result-card {padding:clamp(22px,1.7vw,36px);}
+.result-card strong {font-size:clamp(32px,2.1vw,43px);}
+.result-card span {font-size:16px;line-height:1.5;margin-top:8px;color:#e1edef;}
+.code-final {font-size:clamp(30px,2.5vw,48px);padding:17px 24px;max-width:100%;overflow-wrap:anywhere;}
+.learning-map {grid-template-columns:repeat(5,minmax(0,1fr));gap:17px;margin:26px 0;}
+.learning-card {padding:clamp(19px,1.5vw,28px);}
+.learning-card b {font-size:18px;}
+.learning-card strong {font-size:19px;line-height:1.4;margin:12px 0;}
+.learning-card span {font-size:17px;line-height:1.62;color:#dfeded;}
+.references {font-size:16px;line-height:1.68;padding:23px;overflow-wrap:anywhere;}
+
+/* Wide and intermediate screens: avoid narrow, squeezed columns */
+@media(min-width:1550px) {
+ .mission-grid {grid-template-columns:345px minmax(0,1fr);}
+ .sidebar {padding:26px;}
+ .puzzle-row {grid-template-columns:minmax(0,1.6fr) minmax(315px,.7fr);}
+}
+@media(max-width:1450px) and (min-width:1081px) {
+ .app {padding:18px;}
+ .mission-grid {grid-template-columns:300px minmax(0,1fr);}
+ .puzzle-row {grid-template-columns:minmax(0,1fr) minmax(250px,.82fr);gap:13px;}
+ .pollution-effects {grid-template-columns:minmax(0,1fr);}
+ .pollution-card {grid-template-columns:180px minmax(0,1fr);}
+ .learning-map {grid-template-columns:repeat(3,minmax(0,1fr));}
+ .route-preview {grid-template-columns:minmax(0,1fr);}
+}
+@media(max-width:1080px) {
+ .mission-grid {grid-template-columns:minmax(0,1fr);}
+ .sidebar {position:static;max-height:none;overflow:visible;}
+ .route {grid-template-columns:repeat(2,minmax(0,1fr));}
+ .brief-grid {grid-template-columns:minmax(0,1fr);}
+ .route-preview {grid-template-columns:repeat(2,minmax(0,1fr));}
+ .learning-map {grid-template-columns:repeat(3,minmax(0,1fr));}
+ .workspace {min-height:0;}
+ .hero {min-height:680px;}
+}
+@media(max-width:750px) {
+ html,body {font-size:17px;}
+ .app {padding:12px 12px 40px;}
+ .topbar {position:relative;top:0;padding:14px;align-items:flex-start;flex-wrap:wrap;}
+ .nav {width:100%;justify-content:flex-start;}
+ .nav .chip {font-size:13px;padding:8px 11px;}
+ .nav .chip:first-child {display:inline-flex;}
+ .brand strong {font-size:19px;}
+ .brand small {font-size:13px;}
+ .eyebrow {font-size:13px;}
+ .hero {min-height:640px;}
+ .hero-copy {padding:clamp(21px,5vw,34px);}
+ .hero h1 {font-size:clamp(42px,10vw,66px);line-height:1.06;}
+ .hero p,.brief-lead,.room-head p,.puzzle>p {font-size:17px;}
+ .fact {font-size:14px;}
+ .brief,.results,.workspace,.sidebar {padding:clamp(19px,4vw,30px);}
+ .brief h1,.results h1 {font-size:clamp(36px,8vw,55px);line-height:1.1;}
+ .brief-panel {padding:20px;}
+ .brief-panel p,.brief-panel li {font-size:17px;}
+ .brief-panel h2 {font-size:24px;}
+ .route,.route-preview {grid-template-columns:minmax(0,1fr);}
+ .route-row strong {font-size:17px;}
+ .route-row span {font-size:15px;}
+ .mission-grid {gap:15px;}
+ .room-head {display:flex;gap:12px;align-items:flex-start;}
+ .room-head h1 {font-size:clamp(31px,7.8vw,44px);}
+ .clue-orb {margin-bottom:0;}
+ .puzzle {padding:18px;}
+ .puzzle h2 {font-size:23px;}
+ .puzzle-row {grid-template-columns:minmax(0,1fr);gap:15px;padding:18px;}
+ .puzzle-row strong {font-size:18px;}
+ .puzzle-row span {font-size:16px;}
+ .learning-grid,.result-grid,.learning-map,
+ .pollution-categories,.pollution-effects {grid-template-columns:minmax(0,1fr);}
+ .learning-box span,.learning-box li {font-size:17px;}
+ .pollution-card {grid-template-columns:minmax(102px,.5fr) minmax(0,1fr);min-height:180px;}
+ .pollution-thumb {min-height:180px;}
+ .pollution-copy {padding:15px;}
+ .pollution-copy strong {font-size:17px;}
+ .pollution-copy span {font-size:15px;}
+ .pollution-copy select {font-size:15px;min-height:47px;}
+ .pollution-photo {height:180px;}
+ .status,.hint,.debrief p,.code-panel p {font-size:17px;}
+ .btn {font-size:16px;padding:12px 15px;}
+ .puzzle-actions .btn {font-size:16px;}
+ .attempt-line {width:100%;font-size:15px;margin-left:0;}
+ .result-card strong {font-size:34px;}
+ .result-card span,.learning-card span,.references {font-size:16px;}
+}
+@media(max-width:420px) {
+ .room-head {display:block;}
+ .clue-orb {margin:10px 0;}
+ .pollution-card {grid-template-columns:minmax(0,1fr);}
+ .pollution-thumb {min-height:165px;}
+ .puzzle-actions .btn {width:100%;}
+ .code-entry {display:grid;}
+ .code-entry input {min-width:0;}
+}
+@media(prefers-reduced-motion:reduce) {
+ .screen.active,.debrief.show {animation:none!important;}
+ .btn {transition:none!important;}
+}
