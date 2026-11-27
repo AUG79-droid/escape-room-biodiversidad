@@ -196,5 +196,6 @@ function confirmReset(){if(confirm("¿Quieres reiniciar la misión y borrar el p
 
 $("briefBtn").onclick=openBrief;$("briefHomeBtn").onclick=()=>show($("homeScreen"),"Inicio");$("beginBtn").onclick=beginFromBrief;$("resumeBtn").onclick=resumeMission;$("validateBtn").onclick=validate;$("hintBtn").onclick=revealHint;$("missionBriefBtn").onclick=()=>{freezeClock();save();openBrief()};$("saveExitBtn").onclick=saveExit;$("resetBtn").onclick=confirmReset;$("unlockBtn").onclick=checkCode;$("finalCodeInput").addEventListener("keydown",e=>{if(e.key==="Enter")checkCode()});$("reviewBtn").onclick=()=>{state.current=1;renderRoom()};$("playAgainBtn").onclick=newMission;$("resultsHomeBtn").onclick=()=>show($("homeScreen"),"Inicio");window.addEventListener("beforeunload",()=>{if(state.startedAt&&!state.finished){freezeClock();save()}});updateResume();updateHud();
 </script>
+<script src="./learning-evidence.js" defer></script>
 </body>
 </html>
